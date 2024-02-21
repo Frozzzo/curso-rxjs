@@ -1,13 +1,12 @@
-import { of } from "rxjs";
+import { interval } from "rxjs";
 
-const obs$ = of(1,2,3,4,5,6);
+const observer = {
+  next: (next) => console.log(next),
+  complete: () => console.log('Complete')
+}
 
-console.log('Inicio del obs$');
+const interval$ = interval(1000);
 
-obs$.subscribe({
-    next: (next) => console.log({next}),
-    complete: () => console.log('Se ha completado la secuencia')
-  }
-);
-
-console.log('Se ha completado la secuencia del obs$');
+console.log('Inicio');
+// interval$.subscribe(observer);
+console.log('Fin');
